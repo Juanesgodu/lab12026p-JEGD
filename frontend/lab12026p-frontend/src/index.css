@@ -1,0 +1,62 @@
+:root {
+  --color-bg: #f4f6f8;
+  --color-surface: #ffffff;
+  --color-border: #dfe3e8;
+  --color-text: #1f2933;
+  --color-text-muted: #52606d;
+
+  --color-primary: #0f4c5c;
+  --color-primary-dark: #0b3946;
+  --color-primary-contrast: #ffffff;
+
+  --color-success-bg: #e6f6ec;
+  --color-success-text: #1e7e42;
+  --color-success-border: #b7e4c7;
+
+  --color-error-bg: #fdecec;
+  --color-error-text: #b3261e;
+  --color-error-border: #f5c2c0;
+
+  --color-empty-bg: #f1f2f4;
+  --color-empty-text: #52606d;
+
+  --radius: 8px;
+  --shadow-card: 0 1px 3px rgba(15, 23, 42, 0.08), 0 1px 2px rgba(15, 23, 42, 0.06);
+
+  font-family: 'Segoe UI', system-ui, -apple-system, Roboto, Arial, sans-serif;
+  color-scheme: light;
+  color: var(--color-text);
+  background-color: var(--color-bg);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body,
+#root {
+  height: 100%;
+}
+
+body {
+  margin: 0;
+  background-color: var(--color-bg);
+}
+
+h1,
+h2,
+h3 {
+  color: var(--color-text);
+  margin: 0;
+}
+
+button {
+  font-family: inherit;
+}
+
+input {
+  font-family: inherit;
+}
