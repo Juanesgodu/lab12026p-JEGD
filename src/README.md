@@ -1,0 +1,60 @@
+[![CI/CD Pipeline](https://github.com/Juanesgodu/lab12026p-JEGD/actions/workflows/build.yml/badge.svg)](https://github.com/Juanesgodu/lab12026p-JEGD/actions/workflows/build.yml)
+
+# Banco UdeA - Laboratorio de Arquitectura de Software
+
+Aplicación bancaria con backend en Spring Boot (API REST) y frontend en React.
+
+Operaciones disponibles:
+
+* Consultar clientes y crear nuevos clientes
+* Realizar transferencias de dinero entre cuentas
+* Consultar el histórico de transacciones de una cuenta
+
+Incluye integración continua con GitHub Actions.
+
+## Tecnologías
+
+* Backend: Java 17, Spring Boot 3.5, Spring Data JPA, MySQL, MapStruct, Lombok
+* Frontend: React, Vite, Axios
+* Pruebas: JUnit 5, Mockito
+* CI/CD: GitHub Actions
+
+## Estructura de carpetas
+
+* `src/main` contiene el código del backend
+* `src/test` contiene las pruebas unitarias
+* `frontend/lab12026p-frontend` contiene el frontend en React (ver su README)
+* `.github/workflows` contiene el pipeline de CI/CD
+
+## Endpoints principales
+
+| Método | Ruta                                | Descripción                         |
+|--------|-------------------------------------|-------------------------------------|
+| GET    | `/api/customers`                    | Lista todos los clientes            |
+| GET    | `/api/customers/{id}`               | Obtiene un cliente por ID           |
+| POST   | `/api/customers`                    | Crea un cliente                     |
+| POST   | `/api/transactions`                 | Realiza una transferencia           |
+| GET    | `/api/transactions/{accountNumber}` | Histórico de transacciones de cuenta|
+
+## Cómo ejecutar el backend
+
+Requisitos: JDK 17 y MySQL en `localhost:3306` con una base de datos llamada `lab12026p`.
+
+```shell
+mysql -u root -p -e "CREATE DATABASE lab12026p;"
+./mvnw spring-boot:run
+```
+
+La API queda en `http://localhost:8080`.
+
+## Cómo ejecutar las pruebas
+
+```shell
+./mvnw test
+```
+
+Las pruebas unitarias no necesitan base de datos (los repositorios se simulan con Mockito).
+
+## Cómo ejecutar el frontend
+
+Ver `frontend/lab12026p-frontend/README.md`.
