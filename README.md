@@ -49,6 +49,30 @@ mysql -u root -p -e "CREATE DATABASE lab12026p;"
 
 La API queda en `http://localhost:8080`.
 
+### Configuración de la base de datos
+
+Por defecto la aplicación usa `root` / `root` contra `localhost:3306/lab12026p` (ver `application.properties`).
+Si tu MySQL tiene otras credenciales, no edites el archivo: sobrescríbelas con variables de entorno.
+
+**PowerShell (Windows):**
+
+```powershell
+$env:SPRING_DATASOURCE_USERNAME = "root"
+$env:SPRING_DATASOURCE_PASSWORD = Read-Host "Introduce tu contraseña de MySQL"
+java -jar .\lab12026p-0.0.1-SNAPSHOT.jar
+```
+
+**Linux / macOS:**
+
+```shell
+export SPRING_DATASOURCE_USERNAME=root
+read -s -p "Contraseña de MySQL: " SPRING_DATASOURCE_PASSWORD && export SPRING_DATASOURCE_PASSWORD
+java -jar lab12026p-0.0.1-SNAPSHOT.jar
+```
+
+También se puede sobrescribir la URL con `SPRING_DATASOURCE_URL` (por ejemplo, para apuntar a una base en la nube).
+Las variables solo viven en esa terminal. Estas mismas variables funcionan con `./mvnw spring-boot:run`.
+
 ## Cómo ejecutar las pruebas
 
 ```shell
