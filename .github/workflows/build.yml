@@ -105,3 +105,14 @@ jobs:
           tags: |
             ${{ secrets.DOCKER_USERNAME }}/lab12026p:latest
             ${{ secrets.DOCKER_USERNAME }}/lab12026p:${{ github.sha }}
+
+  deploy:
+    name: Deploy to Render
+    # Solo corre si la imagen ya fue publicada en Docker Hub
+    needs: docker
+    runs-on: ubuntu-latest
+    steps:
+      - name: Trigger Render deploy
+        env:
+          RENDER_DEPLOY_HOOK_URL: ${{ secrets.RENDER_DEPLOY_HOOK_URL }}
+        run: curl --fail --silent --show-error -X POST "$RENDER_DEPLOY_HOOK_URL"
