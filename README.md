@@ -1,6 +1,7 @@
 [![CI/CD Pipeline](https://github.com/Juanesgodu/lab12026p-JEGD/actions/workflows/build.yml/badge.svg)](https://github.com/Juanesgodu/lab12026p-JEGD/actions/workflows/build.yml)
 [![Quality gate status](https://sonarcloud.io/api/project_badges/measure?project=Juanesgodu_lab12026p-JEGD&metric=alert_status)](https://sonarcloud.io/summary/new_code?id=Juanesgodu_lab12026p-JEGD)
 [![Coverage](https://sonarcloud.io/api/project_badges/measure?project=Juanesgodu_lab12026p-JEGD&metric=coverage)](https://sonarcloud.io/summary/new_code?id=Juanesgodu_lab12026p-JEGD)
+[![Known Vulnerabilities](https://snyk.io/test/github/Juanesgodu/lab12026p-JEGD/badge.svg)](https://snyk.io/test/github/Juanesgodu/lab12026p-JEGD)
 
 # Banco UdeA - Laboratorio de Arquitectura de Software
 
