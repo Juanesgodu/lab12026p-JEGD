@@ -5,6 +5,10 @@ on:
   push:
     branches:
       - main
+      - 'feature/**'
+  pull_request:
+    branches:
+      - main
 
 jobs:
   tests:
@@ -28,6 +32,7 @@ jobs:
     name: SonarCloud analysis
     # Solo corre si el job de pruebas pasó
     needs: tests
+    if: github.event_name == 'pull_request' || github.ref == 'refs/heads/main'
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
@@ -59,6 +64,7 @@ jobs:
     name: Build
     # Solo corre si las pruebas y Sonar pasaron
     needs: sonar
+    if: github.ref == 'refs/heads/main'
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
@@ -86,6 +92,7 @@ jobs:
   docker:
     name: Docker image
     needs: build
+    if: github.ref == 'refs/heads/main'
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
@@ -110,6 +117,7 @@ jobs:
     name: Deploy to Render
     # Solo corre si la imagen ya fue publicada en Docker Hub
     needs: docker
+    if: github.ref == 'refs/heads/main'
     runs-on: ubuntu-latest
     steps:
       - name: Trigger Render deploy
